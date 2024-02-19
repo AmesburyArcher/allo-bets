@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Select from '@/components/Select';
+import Button from '@/components/Button';
 
 export default function Home() {
     return (
@@ -7,12 +8,20 @@ export default function Home() {
             <div>
                 <Select
                     items={[
-                        { id: '3', name: 'Item Name' },
+                        {
+                            id: '3',
+                            name: 'Item Name',
+                            description:
+                                'Sample DescriptionDescriptionDescriptionDescriptionDescription',
+                        },
                         { id: '4', name: 'Item 4' },
                     ]}
                     label='This is a label'
                     description='some description'
                 />
+                <Button>
+                    <span>Click Me!</span>
+                </Button>
             </div>
         </main>
     );

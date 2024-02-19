@@ -1,18 +1,17 @@
 'use client';
-import React, { useMemo } from 'react';
+import React from 'react';
 import {
     Button,
     Label,
-    ListBoxItem,
     Popover,
     Select as AriaSelect,
     SelectValue,
     Text,
 } from 'react-aria-components';
 import { MySelectProps } from '@/components/Select/types';
-import classNames from 'classnames';
+// import classNames from 'classnames';
 import ListBox from '@/components/ListBox';
-import { Selector } from '@/components/Icons/Selector';
+import { IconSelector } from '@tabler/icons-react';
 
 const Select: React.FC<MySelectProps<any>> = ({
     label,
@@ -32,8 +31,10 @@ const Select: React.FC<MySelectProps<any>> = ({
                 py-2 pl-5 pr-2 text-base text-left leading-normal shadow-md text-white focus:outline-none 
                 focus-visible:ring-2 ring-white ring-offset-2`}
             >
-                <SelectValue className='flex-1 truncate placeholder-shown:italic' />
-                <Selector size='m' />
+                <SelectValue className='flex-1 truncate placeholder-shown:italic'>
+                    {(item) => <>{item.selectedText}</>}
+                </SelectValue>
+                <IconSelector />
             </Button>
             {description && <Text slot='description'>{description}</Text>}
             <Popover

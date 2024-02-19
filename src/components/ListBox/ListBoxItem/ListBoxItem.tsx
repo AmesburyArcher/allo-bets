@@ -1,7 +1,8 @@
 'use client';
 import React from 'react';
 import { ListBoxItem as AriaListBoxItem, Text } from 'react-aria-components';
-import { MyListBoxItemProps } from '@/components/ListBox/types';
+import type { MyListBoxItemProps } from '@/components/ListBox/types';
+import { IconCheck } from '@tabler/icons-react';
 
 const ListBoxItem: React.FC<MyListBoxItemProps> = ({
     name,
@@ -14,10 +15,33 @@ const ListBoxItem: React.FC<MyListBoxItemProps> = ({
             {...rest}
             textValue={name}
             id={id || name}
-            className='p-2 rounded-md text-sm hover:cursor-pointer hover:bg-blue-300 outline-none'
+            className={
+                'flex justify-between p-2 rounded-md text-sm hover:cursor-pointer' +
+                ' hover:bg-blue-300 focus:bg-blue-300 selected:bg-blue-400 outline-none'
+            }
         >
-            <Text slot='label'>{name}</Text>
-            {description && <Text slot='description'>{description}</Text>}
+            {({ isSelected }) => (
+                <>
+                    <span className='flex flex-col gap-2 grow-0 w-[calc(100%-24px)]'>
+                        <Text slot='label' className='truncate'>
+                            {name}
+                        </Text>
+                        {description && (
+                            <Text
+                                slot='description'
+                                className='truncate text-xs italic'
+                            >
+                                {description}
+                            </Text>
+                        )}
+                    </span>
+                    {isSelected && (
+                        <span className='grow shrink-0'>
+                            <IconCheck />
+                        </span>
+                    )}
+                </>
+            )}
         </AriaListBoxItem>
     );
 };

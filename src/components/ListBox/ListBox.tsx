@@ -28,11 +28,15 @@ const ListBox: React.FC<MyListBoxProps> = ({
                 const section: MyListBoxSectionItemsProps =
                     item as MyListBoxSectionItemsProps;
                 return (
-                    <Section id={section.name} className='list-box-section'>
+                    <Section id={section.name}>
                         <Header className='font-bold'>{section.name}</Header>
                         <Collection items={section.items}>
                             {(item) => (
-                                <ListBoxItem name={item.name} id={item.id} />
+                                <ListBoxItem
+                                    name={item.name}
+                                    id={item.id}
+                                    description={item.description}
+                                />
                             )}
                         </Collection>
                     </Section>
@@ -40,7 +44,13 @@ const ListBox: React.FC<MyListBoxProps> = ({
             }
             const listBoxItem = item as MyListBoxItemProps;
 
-            return <ListBoxItem name={listBoxItem.name} id={listBoxItem.id} />;
+            return (
+                <ListBoxItem
+                    name={listBoxItem.name}
+                    id={listBoxItem.id}
+                    description={listBoxItem.description}
+                />
+            );
         },
         [isSection]
     );
@@ -48,7 +58,10 @@ const ListBox: React.FC<MyListBoxProps> = ({
     return (
         <AriaListBox
             {...props}
-            className='bg-gray-600 p-2 overflow-auto outline-none max-w-[300px] border-[1px] border-gray-400 border-solid rounded-md'
+            className={
+                'flex flex-col gap-1 bg-gray-600 p-2 overflow-y-auto overflow-x-hidden' +
+                ' outline-none w-[200px] border-[1px] border-gray-400 border-solid rounded-md'
+            }
             items={items}
         >
             {renderBoxList}
