@@ -18,8 +18,9 @@ export default function Home() {
                     ]}
                     label='This is a label'
                     description='some description'
+                    placeholder='Select an item'
                 />
-                <Button>
+                <Button hover>
                     <span>Click Me!</span>
                 </Button>
             </div>

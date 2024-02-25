@@ -1,47 +1,36 @@
 'use client';
 import React from 'react';
 import {
-    Button,
     Label,
-    Popover,
     Select as AriaSelect,
     SelectValue,
     Text,
 } from 'react-aria-components';
 import { MySelectProps } from '@/components/Select/types';
-// import classNames from 'classnames';
 import ListBox from '@/components/ListBox';
 import { IconSelector } from '@tabler/icons-react';
+import Popover from '@/components/Popover';
+import Button from '@/components/Button';
 
 const Select: React.FC<MySelectProps<any>> = ({
     label,
     description,
     items,
     className,
+    placeholder,
     ...props
 }) => {
-    // const cx = useMemo(() => classNames('select', className), [className]);
-
     return (
         <AriaSelect {...props} className='flex flex-col gap-1 w-[200px]'>
             <Label className='text-white cursor-default'>{label}</Label>
-            <Button
-                className={`flex items-center hover:cursor-pointer 
-                rounded-md border-0 bg-gray-600 bg-opacity-90 ap:bg-pressed-100 transition 
-                py-2 pl-5 pr-2 text-base text-left leading-normal shadow-md text-white focus:outline-none 
-                focus-visible:ring-2 ring-white ring-offset-2`}
-            >
+            <Button padding='py-2 pl-5 pr-2'>
                 <SelectValue className='flex-1 truncate placeholder-shown:italic'>
-                    {(item) => <>{item.selectedText}</>}
+                    {(item) => <>{item.selectedText || placeholder}</>}
                 </SelectValue>
                 <IconSelector />
             </Button>
             {description && <Text slot='description'>{description}</Text>}
-            <Popover
-                className={`max-h-60 w-[200px] overflow-auto rounded-md
-             text-base shadow-lg ring-1 ring-black/5 entering:animate-in entering:fade-in exiting:animate-out 
-             exiting:fade-out`}
-            >
+            <Popover>
                 <ListBox items={items} />
             </Popover>
         </AriaSelect>
