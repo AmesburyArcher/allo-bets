@@ -1,10 +1,10 @@
 'use client';
 import React, { useMemo } from 'react';
-import { Button as AriaButton } from 'react-aria-components';
-import { MyButtonProps } from '@/components/Button/types';
+import { Link as AriaLink } from 'react-aria-components';
 import classNames from 'classnames';
+import { MyLinkButtonProps } from '@/components/LinkButton/types';
 
-const Button: React.FC<MyButtonProps> = ({
+const LinkButton: React.FC<MyLinkButtonProps> = ({
     children,
     padding,
     hover,
@@ -13,7 +13,7 @@ const Button: React.FC<MyButtonProps> = ({
     const cx = useMemo(
         () =>
             classNames(
-                `flex items-center hover:cursor-pointer 
+                `flex items-center hover:cursor-pointer w-[fit-content]
                 rounded-md border-0 bg-gray-600 pressed:bg-gray-700 transition 
                 text-sm text-left leading-normal shadow-md text-white focus:outline-none 
                 focus-visible:ring-1 ring-white ring-offset-1`,
@@ -24,10 +24,10 @@ const Button: React.FC<MyButtonProps> = ({
     );
 
     return (
-        <AriaButton {...rest} className={cx}>
+        <AriaLink {...rest} className={cx}>
             {children}
-        </AriaButton>
+        </AriaLink>
     );
 };
 
-export default Button;
+export default LinkButton;

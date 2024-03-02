@@ -29,7 +29,11 @@ const Select: React.FC<MySelectProps<any>> = ({
                 </SelectValue>
                 <IconSelector />
             </Button>
-            {description && <Text slot='description'>{description}</Text>}
+            {description && (
+                <Text slot='description' className={`italic text-sm`}>
+                    {description}
+                </Text>
+            )}
             <Popover>
                 <ListBox items={items} />
             </Popover>
