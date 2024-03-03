@@ -3,6 +3,45 @@ import Select from '@/components/Select';
 import Button from '@/components/Button';
 import LinkButton from '@/components/LinkButton';
 import ToggleButton from '@/components/ToggleButton';
+import Menu from '@/components/Menu';
+import { MyMenuItemProps } from '@/components/Menu/MenuItem/types';
+
+const menuItems: MyMenuItemProps[] = [
+    {
+        name: 'Item 1',
+        id: 'Item 1 ID',
+        type: 'item',
+    },
+    {
+        name: 'Section Title',
+        id: 'section1',
+        items: [
+            {
+                name: 'Section Item 1',
+                id: 'Sec1ID',
+                type: 'item',
+            },
+            {
+                name: 'Section Item 2',
+                id: 'Sec2ID',
+                type: 'item',
+            },
+        ],
+        type: 'section',
+    },
+    // {
+    //     name: 'Sub Menu 1',
+    //     type: 'submenu',
+    //     id: 'submenu1',
+    //     items: [
+    //         {
+    //             name: 'Sub Menu 1 item',
+    //             id: 'submenuitem1id',
+    //             type: 'item',
+    //         },
+    //     ],
+    // },
+];
 
 export default function Home() {
     return (
@@ -27,6 +66,7 @@ export default function Home() {
                 </Button>
                 <LinkButton hover>Link!</LinkButton>
                 <ToggleButton hover>Toggle</ToggleButton>
+                <Menu items={menuItems} />
             </div>
         </main>
     );

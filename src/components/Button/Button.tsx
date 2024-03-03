@@ -8,6 +8,7 @@ const Button: React.FC<MyButtonProps> = ({
     children,
     padding,
     hover,
+    width,
     ...rest
 }) => {
     const cx = useMemo(
@@ -18,6 +19,7 @@ const Button: React.FC<MyButtonProps> = ({
                 text-sm text-left leading-normal shadow-md text-white focus:outline-none 
                 focus-visible:ring-1 ring-white ring-offset-1`,
                 padding,
+                width,
                 { 'py-2 px-5': !padding, 'hover:bg-gray-500': hover }
             ),
         [padding, hover]
