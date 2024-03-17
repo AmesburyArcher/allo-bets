@@ -6,4 +6,6 @@ export interface MyMenuItemProps extends MenuItemProps {
     description?: string;
     id: string;
     items?: MyMenuItemProps[];
+    separatorBefore?: boolean;
+    separatorAfter?: boolean;
 }

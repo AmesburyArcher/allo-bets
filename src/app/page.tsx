@@ -15,6 +15,7 @@ const menuItems: MyMenuItemProps[] = [
     {
         name: 'Section Title',
         id: 'section1',
+        separatorBefore: true,
         items: [
             {
                 name: 'Section Item 1',

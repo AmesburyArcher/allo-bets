@@ -8,8 +8,9 @@ const Popover: React.FC<MyPopoverProps> = ({ children, ...restProps }) => {
         <AriaPopover
             {...restProps}
             className={`max-h-60 w-[200px] overflow-auto rounded-md
-             text-base shadow-lg ring-1 ring-black/5 entering:animate-in entering:fade-in exiting:animate-out 
-             exiting:fade-out`}
+             text-base shadow-lg ring-1 ring-black ring-opacity-5 entering:animate-in entering:fade-in 
+             entering:zoom-in-95 exiting:animate-out exiting:fade-out exiting:zoom-out-95 
+             fill-mode-forwards origin-top-left`}
         >
             {children}
         </AriaPopover>

@@ -38,11 +38,16 @@ const Menu: React.FC<MyMenuProps> = ({ buttonContent, ...restProps }) => {
 
     return (
         <MenuTrigger>
-            <Button aria-label='menu' padding='p-[4px]' width='w-[fit-content]'>
+            <Button aria-label='menu' padding='p-[4px]' hover>
                 {buttonContent || <IconMenu2 />}
             </Button>
             <Popover>
-                <AriaMenu {...restProps}>
+                <AriaMenu
+                    {...restProps}
+                    className={`flex flex-col gap-1 bg-gray-600 p-2
+                         overflow-y-auto overflow-x-hidden outline-none 
+                         w-[200px] border-[1px] border-gray-400 border-solid rounded-md`}
+                >
                     {(item) => renderMenuItem(item)}
                 </AriaMenu>
             </Popover>
