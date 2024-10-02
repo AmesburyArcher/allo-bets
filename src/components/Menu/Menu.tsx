@@ -7,7 +7,6 @@ import { MyMenuProps } from '@/components/Menu/types';
 import { IconMenu2 } from '@tabler/icons-react';
 import type { MyMenuItemProps } from '@/components/Menu/MenuItem/types';
 import MenuItemSection from '@/components/Menu/MenuItemSection';
-import SubMenuItem from '@/components/Menu/SubMenuItem';
 import MenuItem from '@/components/Menu/MenuItem';
 
 const Menu: React.FC<MyMenuProps> = ({ buttonContent, ...restProps }) => {
